@@ -79,5 +79,5 @@ if [ "$1" == "-h" ];then
     echo "[-l] (list all themes installed)"
     echo "[-p] (opens plank themes directory)"
     echo "[-h] (shows this help)"
-    echo "[--install] (installs app system-wide)"
+    echo "[--install] (installs app system-wide) ⚠️  Experimental ⚠️ "
     fi
