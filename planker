@@ -1,0 +1,9 @@
+#!/bin/bash
+# Theme manager for plank!
+tar -xf $1 -C ~/.local/share/plank/themes
+if [ -z "$1" ]
+then
+    echo "🤒️ An error has ocurred!"
+else
+    echo "👊️😎️ $1 theme has been installed!"
+fi
