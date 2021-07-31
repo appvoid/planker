@@ -9,13 +9,13 @@ Planker is a really, really minimal way to install plank themes in your Linux sy
 Open a terminal and paste planker where your theme is located
 #### Step 2
 ```
-chmod a+x planker
-./planker your_theme_file_name_goes_here.tar.xz
+chmod a+x plankerapp
+./plankerapp your_theme_file_name_goes_here.tar.xz
 ```
 Done!
 
 ### Get help
 -h tag command will output a list of commands for you
 ```
-./planker -h
+./plankerapp -h
 ```
