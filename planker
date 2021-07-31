@@ -1,9 +1,54 @@
-#!/bin/bash
 # Theme manager for plank!
-tar -xf $1 -C ~/.local/share/plank/themes
-if [ -z "$1" ]
-then
-    echo "🤒️ An error has ocurred!"
-else
-    echo "👊️😎️ $1 theme has been installed!"
-fi
+cwd=$(pwd)
+
+# List
+if [ "$1" == "-l" ];then
+    cd ~ && cd ".local/share/plank/themes" 
+    echo "------------------"
+    echo "Themes installed"
+    echo "------------------"
+    [ "$(ls -A)" ] && echo "" || echo "👉️ Go ahead and install some themes first!" && echo "https://www.gnome-look.org/browse?cat=273&ord=latest"
+    ls
+    cd ~ && cd $cwd
+    fi
+
+# Uninstaller
+if [ "$1" == "-r" ];then
+    if [ -z "$2" ];then
+        echo "🤒️ Name cannot be empty! Dude!"   
+        else
+            cd ~ && cd ".local/share/plank/themes" 
+            if [ -d "$2" ];then
+                rm -rf "$2" && cd ~ && cd $cwd
+                echo "🗑️ $2 theme has been uninstalled!"
+            else
+                cd ~ && cd $cwd
+                echo "🧐️ $2 theme it is not installed!"
+            fi
+        fi
+    fi
+
+# Installer
+if [ -z "$1" ];then
+    echo "👉️ Type the filename of your theme!"
+    else
+        if [ $1 != "-r" ] && [ $1 != "-h" ] && [ $1 != "-l" ];then
+            if [ -f $1 ];then
+                echo "👊️😎️ $1 theme has been installed!"
+                tar -xf $1 -C ~/.local/share/plank/themes
+            else
+                echo "😕️ $1 theme doesn't exist in this directory!"
+            fi
+        fi
+    fi
+
+# Help
+if [ "$1" == "-h" ];then
+    echo "-----------"
+    echo "Help guide"
+    echo "-----------"
+    echo "[no arguments] (installs a theme)"
+    echo "[-r] (uninstalls a theme)"
+    echo "[-l] (list all themes installed)"
+    echo "[-h] (shows this help)"
+    fi
