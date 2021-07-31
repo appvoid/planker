@@ -8,7 +8,7 @@ if [ "$1" == "-l" ];then
     echo "------------------"
     echo "Themes installed"
     echo "------------------"
-    [ "$(ls -A)" ] && echo "" || echo "👉️ Go ahead and install some themes first!" && echo "https://www.gnome-look.org/browse?cat=273&ord=latest"
+    [ "$(ls -A)" ] && echo "" || echo "👉️ Go ahead and install some themes first! https://www.gnome-look.org/browse?cat=273&ord=latest"
     ls
     cd ~ && cd $cwd
     fi
@@ -38,7 +38,7 @@ if [ -z "$1" ];then
                 echo "👊️😎️ $1 theme has been installed!"
                 tar -xf $1 -C ~/.local/share/plank/themes
             else
-                echo "😕️ $1 theme doesn't exist in this directory!"
+                echo "😕️ $1 theme doesn't exist in planker directory!"
             fi
         fi
     fi
@@ -51,9 +51,9 @@ if [ "$1" == "--install" ];then
     chmod a+x plankerapp
     cp plankerapp planker
     mv planker ~/
-    sudo echo "alias planker=\"cd \"$HOME\"/planker/ && ./plankerapp\"" >> ~/.bash_aliases
+    sudo echo "alias planker=\"cd \$HOME\/planker/ && ./plankerapp\"" >> ~/.bash_aliases
     echo "👊️😎️ planker in now installed system-wide!"
-    echo "- Reopen this terminal to make command available"
+    echo "- Reopen this terminal to make 'planker' command available"
     fi
 
 # Help
