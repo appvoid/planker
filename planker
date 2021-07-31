@@ -1,3 +1,4 @@
+#!/bin/bash
 # Theme manager for plank!
 cwd=$(pwd)
 
@@ -12,7 +13,7 @@ if [ "$1" == "-l" ];then
     cd ~ && cd $cwd
     fi
 
-# Uninstaller
+# Theme uninstaller
 if [ "$1" == "-r" ];then
     if [ -z "$2" ];then
         echo "🤒️ Name cannot be empty! Dude!"   
@@ -28,11 +29,11 @@ if [ "$1" == "-r" ];then
         fi
     fi
 
-# Installer
+# Theme installer
 if [ -z "$1" ];then
     echo "👉️ Type the filename of your theme!"
     else
-        if [ $1 != "-r" ] && [ $1 != "-h" ] && [ $1 != "-l" ];then
+        if [ $1 != "-r" ] && [ $1 != "-h" ] && [ $1 != "-l" ] && [ $1 != "--install" ];then
             if [ -f $1 ];then
                 echo "👊️😎️ $1 theme has been installed!"
                 tar -xf $1 -C ~/.local/share/plank/themes
@@ -40,6 +41,19 @@ if [ -z "$1" ];then
                 echo "😕️ $1 theme doesn't exist in this directory!"
             fi
         fi
+    fi
+
+# Plank installer
+if [ "$1" == "--install" ];then
+    if [ ! -d "planker" ];then
+        mkdir planker
+    fi
+    chmod a+x plankerapp
+    cp plankerapp planker
+    mv planker ~/
+    sudo echo "alias planker=\"cd \"$HOME\"/planker/ && ./plankerapp\"" >> ~/.bash_aliases
+    echo "👊️😎️ planker in now installed system-wide!"
+    echo "- Reopen this terminal to make command available"
     fi
 
 # Help
@@ -51,4 +65,5 @@ if [ "$1" == "-h" ];then
     echo "[-r] (uninstalls a theme)"
     echo "[-l] (list all themes installed)"
     echo "[-h] (shows this help)"
+    echo "[--install] (installs app system-wide)"
     fi
