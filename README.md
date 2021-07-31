@@ -23,5 +23,5 @@ Done!
 Drag your themes to /home/planker and install them from there
 
 ### Support
-This app should work on any Linux distro
+This app should work on any Linux distro. 
 planker currently supports only tar.xz files
