@@ -13,3 +13,9 @@ chmod a+x planker
 ./planker your_theme_file_name_goes_here.tar.xz
 ```
 Done!
+
+### Get help
+-h tag command will output a list of commands for you
+```
+./planker -h
+```
