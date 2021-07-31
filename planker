@@ -44,6 +44,9 @@ if [ -z "$1" ];then
                 if [[ $1 == *.tar.xz ]];then
                     tar -xf $1 -C ~/.local/share/plank/themes
                     echo "👊️😎️ $1 theme has been installed!"
+                elif [[ $1 == *.tar.gz ]];then
+                    tar -zxvf $1 -C ~/.local/share/plank/themes
+                    echo "👊️😎️ $1 theme has been installed!"
                 elif [[ $1 == *.zip ]];then
                     unzip -qq $1 -d ~/.local/share/plank/themes
                     echo "👊️😎️ $1 theme has been installed!"
