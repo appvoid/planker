@@ -1,5 +1,5 @@
 # planker
-Theme manager for plank dock 😀️
+Theme manager for plank dock for the masses! 😀️
 
 ### About
 Planker is a really, really minimal way to install plank themes in your Linux system.
