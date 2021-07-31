@@ -19,3 +19,5 @@ Done!
 ```
 ./plankerapp -h
 ```
+### When using system-wide installation
+Drag your themes to /home/planker and install them from there
