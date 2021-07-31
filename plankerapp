@@ -8,7 +8,7 @@ if [ "$1" == "-l" ];then
     echo "------------------"
     echo "Themes installed"
     echo "------------------"
-    [ "$(ls -A)" ] && echo "" || echo "👉️ Go ahead and install some themes first! https://www.gnome-look.org/browse?cat=273&ord=latest"
+[ "$(ls -A)" ] || echo "👉️ Go ahead and install some themes first! https://www.gnome-look.org/browse?cat=273&ord=latest"
     ls
     cd ~ && cd $cwd
     fi
