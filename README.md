@@ -27,6 +27,7 @@ This app should work on any Linux distro.
 planker currently supports tar.xz, tar.gz and zip files
 
 ### Roadmap
+- [x] tar.xz support
 - [x] help feature
 - [x] themes list feature
 - [x] theme (installer / uninstaller)
