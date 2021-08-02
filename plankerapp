@@ -1,6 +1,25 @@
 #!/bin/bash
+
+# Version 1.2.5
 # Theme manager for plank!
+
 cwd=$(pwd)
+
+# Installs theme based on file extension
+install_theme () {
+    if [[ $1 == *.tar.xz ]];then
+        tar -xf $1 -C ~/.local/share/plank/themes
+        echo "👊️😎️ $1 theme has been installed!"
+    elif [[ $1 == *.tar.gz ]];then
+        tar -zxvf $1 -C ~/.local/share/plank/themes
+        echo "👊️😎️ $1 theme has been installed!"
+    elif [[ $1 == *.zip ]];then
+        unzip -qq $1 -d ~/.local/share/plank/themes
+        echo "👊️😎️ $1 theme has been installed!"
+    else
+        echo "$1 Is not a supported file"
+    fi
+}
 
 # List
 if [ "$1" == "-l" ];then
@@ -39,37 +58,19 @@ if [ -z "$1" ];then
     echo "👉️ Type the filename of your theme!"
     else
         if [ $1 != "-r" ] && [ $1 != "-h" ] && [ $1 != "-l" ] && [ $1 != "-p" ] && [ $1 != "--install" ];then
+            #If exists in current dir...
             if [ -f $1 ];then
-                
-                if [[ $1 == *.tar.xz ]];then
-                    tar -xf $1 -C ~/.local/share/plank/themes
-                    echo "👊️😎️ $1 theme has been installed!"
-                elif [[ $1 == *.tar.gz ]];then
-                    tar -zxvf $1 -C ~/.local/share/plank/themes
-                    echo "👊️😎️ $1 theme has been installed!"
-                elif [[ $1 == *.zip ]];then
-                    unzip -qq $1 -d ~/.local/share/plank/themes
-                    echo "👊️😎️ $1 theme has been installed!"
-                else
-                    echo "$1 Is not a supported file"
-                fi
+                install_theme
             else
-                echo "😕️ $1 theme doesn't exist in this directory!"
+            #if exists in Downloads dir...
+                cd ~/Downloads
+                if [ -f $1 ];then
+                    install_theme
+                else 
+                    echo "😕️ $1 theme doesn't exist in planker nor Downloads directories!"
+                fi
             fi
         fi
-    fi
-
-# Plank installer
-if [ "$1" == "--install" ];then
-    if [ ! -d "planker" ];then
-        mkdir planker
-    fi
-    chmod a+x plankerapp
-    cp plankerapp planker
-    mv planker ~/
-    sudo echo "alias planker=\"cd \$HOME\/planker/ && ./plankerapp\"" >> ~/.bash_aliases
-    echo "👊️😎️ planker in now installed system-wide!"
-    echo "- Reopen this terminal to make 'planker' command available"
     fi
 
 # Help
@@ -83,4 +84,17 @@ if [ "$1" == "-h" ];then
     echo "[-p] (opens plank themes directory)"
     echo "[-h] (shows this help)"
     echo "[--install] (installs app system-wide) ⚠️  Experimental ⚠️ "
+    fi
+
+# Plank installer *WARNING* This feature is experimental yet!
+if [ "$1" == "--install" ];then
+    if [ ! -d "planker" ];then
+        mkdir planker
+    fi
+    chmod a+x plankerapp
+    cp plankerapp planker
+    mv planker ~/
+    sudo echo "alias planker=\"cd \$HOME\/planker/ && ./plankerapp\"" >> ~/.bash_aliases
+    echo "👊️😎️ planker in now installed system-wide!"
+    echo "- Reopen this terminal to make 'planker' command available"
     fi
