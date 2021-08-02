@@ -3,6 +3,7 @@ Theme manager for plank dock for the masses! 😀️
 
 ### About
 Planker is a really, really minimal way to install plank themes in your Linux system.
+Just 100 lines of code are needed to provide you with everything you need to manage your favorite dock's themes.
 
 ### Usage
 #### Step 1
