@@ -36,4 +36,4 @@ planker currently supports tar.xz, tar.gz and zip files
 - [x] tar.gz support
 - [x] zip support
 - [ ] Install all themes inside (different / current) directory
-- [x] Install themes from Downloads directory
+- [x] Install themes directly from Downloads directory
